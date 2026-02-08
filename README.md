@@ -99,8 +99,6 @@ On first start, the server runs the schema (creates tables and indexes) automati
 
 ## Deploy on Render
 
-Yes, you can host this on [Render](https://render.com).
-
 ### PostgreSQL on Render
 
 1. **Add a PostgreSQL database:** In Render Dashboard → New → PostgreSQL. Create a DB and note the **Internal Database URL** (or External if you need it from outside Render).
