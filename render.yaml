@@ -1,0 +1,11 @@
+# Render Blueprint (optional). Or use Dashboard: New → Web Service.
+services:
+  - type: web
+    name: votetheticker
+    runtime: node
+    rootDir: .
+    buildCommand: npm run render:build
+    startCommand: npm run render:start
+    envVars:
+      - key: NODE_VERSION
+        value: 20

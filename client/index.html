@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>VoteTheTicker</title>
+    <!-- Tailwind CSS via CDN (no build step) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              alien: { dark: '#0f172a', accent: '#38bdf8', muted: '#64748b' },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Safe area insets for Alien WebView */
+      :root {
+        --sat: env(safe-area-inset-top);
+        --sar: env(safe-area-inset-right);
+        --sab: env(safe-area-inset-bottom);
+        --sal: env(safe-area-inset-left);
+      }
+      body { padding-top: var(--sat); padding-right: var(--sar); padding-bottom: var(--sab); padding-left: var(--sal); }
+    </style>
+  </head>
+  <body class="bg-alien-dark text-slate-100 min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
