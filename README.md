@@ -10,53 +10,6 @@ A verified-human club Mini App for the [Alien](https://docs.alien.org/) ecosyste
 - **Database:** PostgreSQL
 - **Platform:** Alien Mini App (web app in Alien WebView) with Alien SSO for verified identity
 
-## Quick Start
-
-### Option A: PostgreSQL in Docker
-
-```bash
-# Start PostgreSQL in a container (from project root)
-docker compose up -d postgres
-
-# Copy .env.example to .env (server loads it from project root so DATABASE_URL is set for Docker Postgres).
-
-# Install dependencies and run the app
-npm install
-cd server && npm install && cd ..
-cd client && npm install && cd ..
-npm run dev
-```
-
-Stop the DB when done: `docker compose down`. Data is kept in a Docker volume (`votetheticker_pgdata`).
-
-### Option B: Local PostgreSQL (no Docker)
-
-```bash
-# Create a database (if local Postgres is installed)
-createdb votetheticker
-
-# Install dependencies
-npm install
-cd server && npm install
-cd ../client && npm install
-
-# Run dev (backend + frontend)
-# Optional: set DATABASE_URL if not using postgresql://localhost:5432/votetheticker
-npm run dev
-```
-
-- Backend: http://localhost:3001
-- Frontend: http://localhost:5173 (proxies API to backend)
-
-**Environment (server):**
-
-| Variable       | Description                                      | Default (if unset)                    |
-|----------------|--------------------------------------------------|---------------------------------------|
-| `DATABASE_URL` | PostgreSQL connection string                     | `postgresql://localhost:5432/votetheticker` |
-| `PORT`         | Server port                                     | `3001`                                |
-
-On first start, the server runs the schema (creates tables and indexes) automatically.
-
 ## Alien Integration
 
 - **Auth:** The Alien host injects a JWT via `window.__ALIEN_AUTH_TOKEN__`. This app reads it and sends it in the `Authorization` header.
@@ -107,8 +60,6 @@ On first start, the server runs the schema (creates tables and indexes) automati
 4. **Build Command:** `npm run render:build`  
 5. **Start Command:** `npm run render:start`  
 6. Deploy. On first start, the server runs the schema and creates all tables automatically. Data persists across deploys.
-
-**Optional – Blueprint:** If you use a `render.yaml` (Blueprint), the repo includes one. In Render Dashboard: New → Blueprint, connect the repo, and use the generated service (you can set Build Command to `npm run render:build` and Start Command to `npm run render:start` in the service settings).
 
 ## Safety & Disclaimers
 
